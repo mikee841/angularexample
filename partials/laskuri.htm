@@ -3,15 +3,15 @@
 	<div class="panel-body">
 	<div class="form-group">
 	  <label for="width">Leveys:</label>
-	  <input type="text"  ng-model="data.val1" class="form-control" id="width">
+	  <input type="text" ng-model="data.val1" class="form-control" id="width">
 	</div>
 	<div class="form-group">
 	  <label for="depth">Syvyys:</label>
-	  <input type="text"  ng-model="data.val2" class="form-control" id="depth">
+	  <input type="text" ng-model="data.val2" class="form-control" id="depth">
 	</div>
 	<div class="form-group">
 	  <label for="area">Pinta-ala:</label>
-	  <input type="text" class="form-control" id="area" readonly value="{{data.val1*data.val2*6}}">
+	  <input type="number" class="form-control" id="area" readonly value="{{data.val1*data.val2*6}}">
 	</div>
   </div>
 </div>
