@@ -14,17 +14,17 @@
     </div>
   </div>
   <table class="table table-bordered table-striped" ng-controller="tableCtrl" ts-wrapper>
-    	<tr>
+    <tr>
     		<th ts-criteria="name|lowercase" ts-default>Nimi</th>
     		<th>Määrä nyt</th>
     		<th>Viimeksi tässä ajassa</th>
     		<th ts-criteria="progress|parseFloat">Kehitys</th>
     	</tr>
-    	<tr ng-repeat="item in tableItems | filter:search:strict" ts-repeat>
+      <tr ng-repeat="item in tableItems | filter:search:strict" ts-repeat ng-hide="subfifty && !item.belowFifty">
     		<td>{{item.name}}</td>
     		<td>{{item.sumNow}}</td>
     		<td>{{item.sumProgressive}}</td>
-    		<td>{{item.progress}}</td>
+        <td>{{item.progress}}</td>
     	</tr>
     </table>
 </div>

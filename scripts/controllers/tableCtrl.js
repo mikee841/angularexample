@@ -3,8 +3,12 @@ app.controller('tableCtrl', ['$scope', '$http', function($scope, $http) {
 		$scope.tableItems = response.data;
 
 		angular.forEach($scope.tableItems, function(obj){
-          obj.progress = 100 * (obj.sumNow - obj.sumProgressive) / obj.sumProgressive;
-        });
+			var progressValue = 100 * (obj.sumNow - obj.sumProgressive) / obj.sumProgressive;
+			obj.progress = progressValue;
+			obj.belowFifty = false;
+			if(parseInt(progressValue).toFixed(0) < 50)
+				obj.belowFifty = true;
+		});
 	});
 
 }]);
