@@ -5,9 +5,9 @@ app.controller('tableCtrl', ['$scope', '$http', function($scope, $http) {
 		angular.forEach($scope.tableItems, function(obj){
 			var progressValue = 100 * (obj.sumNow - obj.sumProgressive) / obj.sumProgressive;
 			obj.progress = progressValue;
-			obj.belowFifty = false;
-			if(parseInt(progressValue).toFixed(0) < 50)
-				obj.belowFifty = true;
+			obj.aboveFifty = false;
+			if(parseInt(progressValue).toFixed(0) > 50)
+				obj.aboveFifty = true;
 		});
 	});
 
