@@ -1,4 +1,17 @@
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-heading">Taulukko</div>
-  <div class="panel-body">Taulukko</div>
+  <table class="table" >
+  	<tr>
+  		<th>Nimi</th>
+  		<th>Määrä nyt</th>
+  		<th>Viimeksi tässä ajassa</th>
+  		<th>Kehitys</th>
+  	</tr>
+  	<tr ng-repeat="item in tableItems">
+  		<td>{{item.name}}</td>
+  		<td>{{item.sumNow}}</td>
+  		<td>{{item.sumProgressive}}</td>
+  		<td>{{100 * (item.sumNow - item.sumProgressive) / item.sumProgressive}}</td>
+  	</tr>
+  </table>
 </div>
