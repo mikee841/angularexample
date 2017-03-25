@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">Taulukko</div>
-  <div class="panel-body">
-    <div class="col-md-12">
+    <div class="panel-heading">Taulukko</div>
+    <div class="panel-body">
+     <div class="col-md-12">
     <div class="form-group">
         <label for="search">Nimi:</label>
         <input type="text" ng-model="search.name" class="form-control" id="search">
@@ -13,18 +13,18 @@
       </div>
     </div>
   </div>
-  <table class="table table-bordered table-striped" ng-controller="tableCtrl">
-  	<tr>
-  		<th>Nimi</th>
-  		<th>Määrä nyt</th>
-  		<th>Viimeksi tässä ajassa</th>
-  		<th>Kehitys</th>
-  	</tr>
-  	<tr ng-repeat="item in tableItems | filter:search:strict">
-  		<td>{{item.name}}</td>
-  		<td>{{item.sumNow}}</td>
-  		<td>{{item.sumProgressive}}</td>
-  		<td>{{item.progress}}</td>
-  	</tr>
-  </table>
+  <table class="table table-bordered table-striped" ng-controller="tableCtrl" ts-wrapper>
+    	<tr>
+    		<th ts-criteria="name|lowercase" ts-default>Nimi</th>
+    		<th>Määrä nyt</th>
+    		<th>Viimeksi tässä ajassa</th>
+    		<th ts-criteria="progress|parseFloat">Kehitys</th>
+    	</tr>
+    	<tr ng-repeat="item in tableItems | filter:search:strict" ts-repeat>
+    		<td>{{item.name}}</td>
+    		<td>{{item.sumNow}}</td>
+    		<td>{{item.sumProgressive}}</td>
+    		<td>{{item.progress}}</td>
+    	</tr>
+    </table>
 </div>
