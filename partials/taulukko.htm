@@ -1,6 +1,18 @@
 <div class="panel panel-primary">
   <div class="panel-heading">Taulukko</div>
-
+  <div class="panel-body">
+  <div class="col-md-12">
+   <div class="form-group">
+      <label for="search">Nimi:</label>
+      <input type="text" ng-model="search.name" class="form-control" id="search">
+    </div>
+    <div class="form-group">
+      <label for="subfifty" class="checkbox-inline">
+        <input type="checkbox" ng-model="subfifty" id="subfifty"> Kehitys alle 50
+      </label>
+    </div>
+  </div>
+  </div>
   <table class="table table-bordered table-striped" ng-controller="tableCtrl">
   	<tr>
   		<th>Nimi</th>
@@ -8,11 +20,11 @@
   		<th>Viimeksi tässä ajassa</th>
   		<th>Kehitys</th>
   	</tr>
-  	<tr ng-repeat="item in tableItems">
+  	<tr ng-repeat="item in tableItems | filter:search:strict">
   		<td>{{item.name}}</td>
   		<td>{{item.sumNow}}</td>
   		<td>{{item.sumProgressive}}</td>
-  		<td>{{100 * (item.sumNow - item.sumProgressive) / item.sumProgressive}}</td>
+  		<td>{{item.progress}}</td>
   	</tr>
   </table>
 </div>
