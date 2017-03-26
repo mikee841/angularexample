@@ -1,17 +1,30 @@
+<div class="panel panel-danger" ng-show="(calculator.width.$invalid || calculator.depth.$invalid)">
+	<div class="panel-heading">Huomio, tarkista seuraavat kentät:</div>
+	<div class="panel-body">
+		<ul>
+			<li ng-show="calculator.width.$invalid">Leveys</li>
+			<li ng-show="calculator.depth.$invalid">Syvyys</li>
+		</ul>
+	</div>
+</div>
+
 <div class="panel panel-primary">
 	<div class="panel-heading">Laskuri</div>
 	<div class="panel-body">
-	<div class="form-group">
-	  <label for="width">Leveys:</label>
-	  <input type="text" ng-model="data.val1" class="form-control" id="width">
-	</div>
-	<div class="form-group">
-	  <label for="depth">Syvyys:</label>
-	  <input type="text" ng-model="data.val2" class="form-control" id="depth">
-	</div>
-	<div class="form-group">
-	  <label for="area">Pinta-ala:</label>
-	  <input type="number" class="form-control" id="area" readonly value="{{data.val1*data.val2*6}}">
+	<form name="calculator">
+		<div class="form-group col-md-4" ng-class="{ 'has-error' : calculator.width.$invalid }">
+		  <label for="width">Leveys *</label>
+		  <input type="number" required min="1" ng-model="data.val1" class="form-control" id="width" name="width" placeholder="Leveys (cm tai m)">
+		</div>
+		<div class="form-group col-md-4" ng-class="{ 'has-error' : calculator.depth.$invalid }">
+		  <label for="depth">Syvyys *</label>
+		  <input type="number" required min="1" ng-model="data.val2" class="form-control" id="depth" name="depth" placeholder="Syvyys (cm tai m)">
+		</div>
+		<div class="form-group col-md-4">
+		  <label for="area">Pinta-ala</label>
+		  <input type="number" class="form-control" id="area" readonly value="{{data.val1*data.val2}}" placeholder="Pinta-ala">
+		</div>
+	</form>
 	</div>
   </div>
 </div>
